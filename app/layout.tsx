@@ -2,9 +2,14 @@ import type { Metadata, Viewport } from 'next';
 import { Inter, Outfit, Noto_Sans_Bengali } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
-const notoBengali = Noto_Sans_Bengali({ subsets: ['bengali'], weight: ['400', '700'], variable: '--font-noto' });
+const inter = Inter({ subsets: ['latin'], display: 'swap', preload: true, variable: '--font-inter' });
+const outfit = Outfit({ subsets: ['latin'], display: 'swap', preload: true, variable: '--font-outfit' });
+const notoBengali = Noto_Sans_Bengali({ 
+  subsets: ['bengali'], 
+  weight: ['300', '400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-noto-bengali'
+});
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -51,7 +56,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="bn-BD" suppressHydrationWarning className={`${inter.variable} ${outfit.variable} ${notoBengali.variable}`}>
-      <body className="bg-slate-950 text-slate-50 antialiased selection:bg-cyan-500/30 selection:text-cyan-200 font-noto">
+      <head />
+      <body className="bg-slate-950 text-slate-50 antialiased selection:bg-cyan-500/30 selection:text-cyan-200">
         <div className="fixed inset-0 -z-10 overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,#3b82f615,transparent_50%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,#8b5cf610,transparent_50%)]" />
