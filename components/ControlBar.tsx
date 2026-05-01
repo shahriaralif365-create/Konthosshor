@@ -4,12 +4,12 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Copy, Check, Trash2, Download, FileText } from 'lucide-react';
 import { Document, Packer, Paragraph } from 'docx';
-import { translations } from '@/lib/translations';
+import { translations, Language } from '@/lib/translations';
 
 interface ControlBarProps {
   text: string;
   onClear: () => void;
-  language?: 'bengali' | 'english' | 'arabic' | 'urdu';
+  language?: Language;
   children?: React.ReactNode;
 }
 

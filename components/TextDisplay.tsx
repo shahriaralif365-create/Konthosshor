@@ -2,12 +2,13 @@
 
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Language } from '@/lib/translations';
 
 interface TextDisplayProps {
   text: string;
   interimText: string;
   onChange: (text: string) => void;
-  language?: 'bengali' | 'english' | 'arabic' | 'urdu' | 'japanese';
+  language?: Language;
   textareaRef: React.RefObject<HTMLTextAreaElement>;
 }
 
@@ -20,7 +21,7 @@ export function TextDisplay({ text, interimText, onChange, language = 'bengali',
       // so we don't interrupt the user's manual editing or scrolling during speech.
       textareaRef.current.scrollTop = textareaRef.current.scrollHeight;
     }
-  }, [text]);
+  }, [text, textareaRef]);
 
   return (
     <div className="relative w-full flex-1 flex flex-col group">

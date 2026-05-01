@@ -1,13 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, Search, MessageSquare, Info, Globe, Mic } from 'lucide-react';
-import { Language } from '@/lib/translations';
+import { motion } from 'framer-motion';
+import { X, Search, Info, Globe, Mic } from 'lucide-react';
 
 interface VoiceGuideProps {
   onClose: () => void;
-  activeLanguage: Language;
 }
 
 interface CommandInfo {
@@ -49,7 +47,7 @@ const COMMAND_DATA: Record<string, CommandInfo[]> = {
   ],
 };
 
-export function VoiceGuide({ onClose, activeLanguage }: VoiceGuideProps) {
+export function VoiceGuide({ onClose }: VoiceGuideProps) {
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredData = Object.entries(COMMAND_DATA).reduce((acc, [lang, commands]) => {
@@ -130,7 +128,7 @@ export function VoiceGuide({ onClose, activeLanguage }: VoiceGuideProps) {
                   <div key={i} className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors group">
                     <div className="flex items-center gap-3">
                       <span className="text-[10px] text-slate-500 font-medium">Say</span>
-                      <span className="text-sm font-bold text-white group-hover:text-primary transition-colors">"{cmd.command}"</span>
+                      <span className="text-sm font-bold text-white group-hover:text-primary transition-colors">&quot;{cmd.command}&quot;</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <span className="text-xs text-slate-500">→</span>
@@ -146,7 +144,7 @@ export function VoiceGuide({ onClose, activeLanguage }: VoiceGuideProps) {
 
           {Object.keys(filteredData).length === 0 && (
             <div className="text-center py-12">
-              <p className="text-slate-500 text-sm">No commands found for "{searchQuery}"</p>
+              <p className="text-slate-500 text-sm">No commands found for &quot;{searchQuery}&quot;</p>
             </div>
           )}
         </div>

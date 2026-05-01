@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Delete, CornerDownLeft, Space as SpaceIcon, ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Delete, CornerDownLeft, Space as SpaceIcon } from 'lucide-react';
 import { Language } from '@/lib/translations';
 
 interface ControlBoxProps {

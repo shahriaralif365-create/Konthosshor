@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { VoiceTyper } from '@/components/VoiceTyper';
 import { VoiceGuide } from '@/components/VoiceGuide';
-import { Mic, Shield, Zap, Globe, Type, Info } from 'lucide-react';
+import { Mic, Shield, Zap, Globe, Info } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { translations, Language } from '@/lib/translations';
 
@@ -153,7 +153,6 @@ export default function Home() {
       <AnimatePresence>
         {isVoiceGuideOpen && (
           <VoiceGuide 
-            activeLanguage={language} 
             onClose={() => setIsVoiceGuideOpen(false)} 
           />
         )}

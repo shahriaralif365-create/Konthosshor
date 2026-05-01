@@ -10,7 +10,6 @@ import { ControlBox } from './ControlBox';
 import { useSpeechRecognition } from '@/hooks/useSpeechRecognition';
 import { useTextStorage } from '@/hooks/useTextStorage';
 import { translations, Language } from '@/lib/translations';
-import { Info } from 'lucide-react';
 
 interface VoiceTyperProps {
   language?: Language;
